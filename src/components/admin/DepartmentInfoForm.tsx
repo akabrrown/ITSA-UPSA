@@ -37,7 +37,7 @@ export function DepartmentInfoForm({ initialData }: { initialData?: Partial<Depa
           <label className="block text-sm font-medium text-gray-700 mb-1">Department Description / About</label>
           <input type="hidden" id="description" name="description" defaultValue={initialData?.description || ''} />
           <RichTextEditor 
-            content={initialData?.description || ''} 
+            value={initialData?.description || ''} 
             onChange={(html) => {
               const input = document.getElementById('description') as HTMLInputElement;
               if (input) input.value = html;
@@ -49,7 +49,7 @@ export function DepartmentInfoForm({ initialData }: { initialData?: Partial<Depa
           <label className="block text-sm font-medium text-gray-700 mb-1">Mission / Vision</label>
           <input type="hidden" id="mission" name="mission" defaultValue={initialData?.mission || ''} />
           <RichTextEditor 
-            content={initialData?.mission || ''} 
+            value={initialData?.mission || ''} 
             onChange={(html) => {
               const input = document.getElementById('mission') as HTMLInputElement;
               if (input) input.value = html;

@@ -140,7 +140,7 @@ export function ExecutiveForm({ initialData }: { initialData?: any }) {
         <label className="text-sm font-medium text-gray-700">Detailed Bio</label>
         <div className="border border-gray-200 rounded-lg overflow-hidden">
           <RichTextEditor
-            content={formData.bio}
+            value={formData.bio}
             onChange={(html) => setFormData({...formData, bio: html})}
           />
         </div>

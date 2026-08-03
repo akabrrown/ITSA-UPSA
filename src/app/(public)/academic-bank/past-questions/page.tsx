@@ -18,7 +18,7 @@ export default async function PastQuestionsPage() {
 
       <section>
         {pastQuestions.length > 0 ? (
-          <FolderView resources={pastQuestions} theme="gold" />
+          <FolderView resources={pastQuestions as any} theme="gold" />
         ) : (
           <p className="text-gray-500 italic bg-gray-50 p-6 rounded-lg text-center">No past questions available yet.</p>
         )}

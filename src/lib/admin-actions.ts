@@ -22,7 +22,7 @@ function getAdminClient() {
 // generic insert
 export async function insertRecord<T>(table: string, data: T, pathToRevalidate?: string) {
   const supabase = getAdminClient();
-  const { data: inserted, error } = await supabase.from(table).insert(data).select().single();
+  const { data: inserted, error } = await supabase.from(table).insert(data as any).select().single();
   
   if (error) {
     console.error(`Error inserting into ${table}:`, error);
@@ -39,7 +39,7 @@ export async function insertRecord<T>(table: string, data: T, pathToRevalidate?:
 // generic update
 export async function updateRecord<T>(table: string, id: string, data: T, pathToRevalidate?: string) {
   const supabase = getAdminClient();
-  const { data: updated, error } = await supabase.from(table).update(data).eq('id', id).select().single();
+  const { data: updated, error } = await supabase.from(table).update(data as any).eq('id', id).select().single();
   
   if (error) {
     console.error(`Error updating ${table}:`, error);

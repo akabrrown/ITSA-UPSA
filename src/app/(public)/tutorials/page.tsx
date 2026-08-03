@@ -16,7 +16,7 @@ export default async function TutorialsPage() {
       </div>
 
       {tutorials.length > 0 ? (
-        <TutorialsView tutorials={tutorials} />
+        <TutorialsView tutorials={tutorials as any} />
       ) : (
         <div className="text-center py-20 bg-gray-50 rounded-2xl border border-dashed border-gray-200">
           <p className="text-gray-500 text-lg">No tutorials available at the moment. Check back later!</p>

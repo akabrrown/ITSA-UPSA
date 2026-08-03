@@ -72,15 +72,15 @@ export function AuthorityForm({ initialData }: { initialData?: Partial<Departmen
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-          <input type="email" name="email" defaultValue={initialData?.email ?? undefined} placeholder="john@example.com" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-itsa-navy" />
+          <input type="email" name="email" defaultValue={(initialData as any)?.email ?? undefined} placeholder="john@example.com" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-itsa-navy" />
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">LinkedIn URL</label>
-          <input type="url" name="linkedin_url" defaultValue={initialData?.linkedin_url ?? undefined} placeholder="https://linkedin.com/in/..." className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-itsa-navy" />
+          <input type="url" name="linkedin_url" defaultValue={(initialData as any)?.linkedin_url ?? undefined} placeholder="https://linkedin.com/in/..." className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-itsa-navy" />
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Twitter URL</label>
-          <input type="url" name="twitter_url" defaultValue={initialData?.twitter_url ?? undefined} placeholder="https://twitter.com/..." className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-itsa-navy" />
+          <input type="url" name="twitter_url" defaultValue={(initialData as any)?.twitter_url ?? undefined} placeholder="https://twitter.com/..." className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-itsa-navy" />
         </div>
       </div>
 
@@ -88,13 +88,13 @@ export function AuthorityForm({ initialData }: { initialData?: Partial<Departmen
         <label className="block text-sm font-medium text-gray-700 mb-1">Bio (Rich Text)</label>
         <div className="border border-gray-300 rounded-lg overflow-hidden">
           <RichTextEditor
-            content={initialData?.bio ?? ''}
+            value={(initialData as any)?.bio ?? ''}
             onChange={(html) => {
               const input = document.getElementById('bio') as HTMLInputElement;
               if (input) input.value = html;
             }}
           />
-          <input type="hidden" id="bio" name="bio" defaultValue={initialData?.bio ?? ''} />
+          <input type="hidden" id="bio" name="bio" defaultValue={(initialData as any)?.bio ?? ''} />
         </div>
       </div>
 

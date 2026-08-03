@@ -56,7 +56,7 @@ export default function ExecutivesPage() {
         title="ITSA Executives"
         description="Manage the current ITSA executive board members."
         data={executives}
-        columns={columns}
+        columns={columns as any}
         createLink="/admin/dashboard/executives/new"
         createText="Add Executive"
         editLinkPrefix="/admin/dashboard/executives"

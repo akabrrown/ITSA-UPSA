@@ -18,7 +18,7 @@ export default async function LeadersPage() {
         </p>
       </div>
 
-      <LeadersView authorities={authorities} executives={executives} />
+      <LeadersView authorities={authorities as any} executives={executives as any} />
     </div>
   );
 }

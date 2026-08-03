@@ -148,7 +148,7 @@ export function AcademicResourceForm({ initialData, existingCourses = [] }: { in
           <select 
             className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-itsa-navy focus:border-transparent outline-none transition-all bg-white"
             value={formData.resource_type} 
-            onChange={(e) => setFormData({...formData, resource_type: e.target.value})}
+            onChange={(e) => setFormData({...formData, resource_type: e.target.value as 'slide' | 'past_question'})}
           >
             <option value="slide">Lecture Slide</option>
             <option value="past_question">Past Question</option>

@@ -60,7 +60,7 @@ export function ActivityForm({ initialData }: { initialData?: Partial<Activity> 
           <select 
             className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-itsa-navy focus:border-transparent outline-none transition-all bg-white"
             value={formData.status} 
-            onChange={(e) => setFormData({...formData, status: e.target.value})}
+            onChange={(e) => setFormData({...formData, status: e.target.value as 'upcoming' | 'past'})}
           >
             <option value="upcoming">Upcoming</option>
             <option value="past">Past</option>

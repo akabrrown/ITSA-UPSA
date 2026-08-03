@@ -33,7 +33,7 @@ export default function BannerSlidePage() {
 
   const columns = [
     { header: 'Headline', accessor: 'headline' as const },
-    { header: 'Status', accessor: ((item: BannerSlide) => item.is_active ? 'Active' : 'Hidden') as const },
+    { header: 'Status', accessor: ((item: BannerSlide) => item.is_active ? 'Active' : 'Hidden') },
   ];
 
   if (loading) return <div className="p-8 text-center text-gray-500">Loading...</div>;
@@ -52,10 +52,10 @@ export default function BannerSlidePage() {
 
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
         <DataTable 
-          data={data} 
-          columns={columns} 
+          data={data as any} 
+          columns={columns as any} 
           onDelete={handleDelete}
-          editBasePath="/admin/dashboard/banners"
+          editLinkPrefix="/admin/dashboard/banners"
         />
       </div>
     </div>

@@ -33,7 +33,7 @@ export default function NewsPostPage() {
 
   const columns = [
     { header: 'Title', accessor: 'title' as const },
-    { header: 'Status', accessor: ((item: NewsPost) => item.is_published ? 'Published' : 'Draft') as const },
+    { header: 'Status', accessor: ((item: NewsPost) => item.is_published ? 'Published' : 'Draft') },
   ];
 
   if (loading) return <div className="p-8 text-center text-gray-500">Loading...</div>;
@@ -52,10 +52,10 @@ export default function NewsPostPage() {
 
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
         <DataTable 
-          data={data} 
-          columns={columns} 
+          data={data as any} 
+          columns={columns as any} 
           onDelete={handleDelete}
-          editBasePath="/admin/dashboard/news"
+          editLinkPrefix="/admin/dashboard/news"
         />
       </div>
     </div>

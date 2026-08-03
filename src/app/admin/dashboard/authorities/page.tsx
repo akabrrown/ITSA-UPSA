@@ -52,10 +52,10 @@ export default function DepartmentAuthorityPage() {
 
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
         <DataTable 
-          data={data} 
-          columns={columns} 
+          data={data as any} 
+          columns={columns as any} 
           onDelete={handleDelete}
-          editBasePath="/admin/dashboard/authorities"
+          editLinkPrefix="/admin/dashboard/authorities"
         />
       </div>
     </div>

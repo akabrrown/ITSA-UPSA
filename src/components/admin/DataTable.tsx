@@ -8,7 +8,7 @@ interface Column<T> {
 }
 
 interface DataTableProps<T> {
-  title: string;
+  title?: string;
   description?: string;
   data: T[];
   columns: Column<T>[];
@@ -30,21 +30,23 @@ export function DataTable<T extends { id: string }>({
 }: DataTableProps<T>) {
   return (
     <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-        <div>
-          <h1 className="text-2xl font-bold text-gray-900">{title}</h1>
-          {description && <p className="text-sm text-gray-500 mt-1">{description}</p>}
+      {(title || description || createLink) && (
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+          <div>
+            {title && <h1 className="text-2xl font-bold text-gray-900">{title}</h1>}
+            {description && <p className="text-sm text-gray-500 mt-1">{description}</p>}
+          </div>
+          {createLink && (
+            <Link 
+              href={createLink}
+              className="inline-flex items-center justify-center px-4 py-2 bg-itsa-navy text-white text-sm font-medium rounded-lg hover:bg-itsa-navy-dark transition-colors shadow-sm"
+            >
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4"></path></svg>
+              {createText}
+            </Link>
+          )}
         </div>
-        {createLink && (
-          <Link 
-            href={createLink}
-            className="inline-flex items-center justify-center px-4 py-2 bg-itsa-navy text-white text-sm font-medium rounded-lg hover:bg-itsa-navy-dark transition-colors shadow-sm"
-          >
-            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4"></path></svg>
-            {createText}
-          </Link>
-        )}
-      </div>
+      )}
 
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
         <div className="overflow-x-auto">

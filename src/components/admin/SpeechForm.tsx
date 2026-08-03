@@ -64,7 +64,7 @@ export function SpeechForm({ initialData }: { initialData?: Partial<PresidentSpe
           <label className="block text-sm font-medium text-gray-700 mb-1">Speech Message (Rich Text)</label>
           <input type="hidden" id="message" name="message" defaultValue={initialData?.message || ''} />
           <RichTextEditor 
-            content={initialData?.message || ''} 
+            value={initialData?.message || ''} 
             onChange={(html) => {
               const input = document.getElementById('message') as HTMLInputElement;
               if (input) input.value = html;

@@ -54,7 +54,7 @@ export function NewsForm({ initialData }: { initialData?: Partial<NewsPost> }) {
           <label className="block text-sm font-medium text-gray-700 mb-1">Full Story</label>
           <input type="hidden" id="body" name="body" defaultValue={initialData?.body || ''} />
           <RichTextEditor 
-            content={initialData?.body || ''} 
+            value={initialData?.body || ''} 
             onChange={(html) => {
               const input = document.getElementById('body') as HTMLInputElement;
               if (input) input.value = html;

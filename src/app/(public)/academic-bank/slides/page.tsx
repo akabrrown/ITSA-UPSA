@@ -18,7 +18,7 @@ export default async function SlidesPage() {
 
       <section>
         {slides.length > 0 ? (
-          <FolderView resources={slides} theme="navy" />
+          <FolderView resources={slides as any} theme="navy" />
         ) : (
           <p className="text-gray-500 italic bg-gray-50 p-6 rounded-lg text-center">No lecture slides available yet.</p>
         )}

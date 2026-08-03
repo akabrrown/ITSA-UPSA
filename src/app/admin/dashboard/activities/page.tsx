@@ -61,7 +61,7 @@ export default function ActivitiesPage() {
         title="Activities & Events"
         description="Manage all ITSA events, workshops, and seminars."
         data={activities}
-        columns={columns}
+        columns={columns as any}
         createLink="/admin/dashboard/activities/new"
         createText="Add Activity"
         editLinkPrefix="/admin/dashboard/activities"
